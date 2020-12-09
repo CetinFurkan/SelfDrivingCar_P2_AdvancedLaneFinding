@@ -1,3 +1,6 @@
+# Advanced Lane Detection Project
+
+![FinalAnimation](pipeline/finalAnim.gif?raw=true "FinalAnimation")
 
 ## Overview
 
