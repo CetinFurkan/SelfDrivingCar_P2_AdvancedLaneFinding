@@ -20,14 +20,22 @@ As a very first beginning step, the camera distortion values are extracted by an
 #### 2. Undistorted Image
 Images are then undistorted by the function `cv2.undistort` to reduce defects in upcoming analyzing functions that may lead unexpected results that are far from the real case. Otherwise, straight lines in real world may appear as curvatures on image. 
 
+![Undistorted](output_images/distortion.gif?raw=true "Undistorted")
+
 #### 3. Cropping Area
 In order to better performance, all image analyzing functions for lane detection are applied on only a portion of the overall canvas. To distinct the lanes from the other parts of the image, also a polygonal area is cropped so that images consist only the lanes line.    
+
+![Cropping](output_images/cropped.jpg?raw=true "Cropping")
 
 #### 4. White and Yellow Color Filter
 The cropped image that has white and yellow lanes are filtered according to color channels. For detecting white, a simple filtering is used by checking all RGB channels of the image. However, for filtering yellow, the image is converted into HSL space so that from the hue value interval of yellow, it become easier to filter it. After detection of lane lines separately (which are separate binary images), they are combined into one binary image that shows both lanes only.
 
+![ColorFilter](output_images/Color_Filter.jpg?raw=true "ColorFilter")
+
 #### 5. Perspective Transform
 Now then the polygonal area of the lanes and it's filtered version that shows only lane lines are both wrapped to be shown as a top-down view images. That images are great way to understand if the filtering and cropping is done correctly. 
+
+![Perspective](output_images/warped_original_test5.jpg?raw=true "Perspective")
 
 #### 6. Identification of Lanes
 Since there are white pixels that show lane lines, there are also some noise around to be filtered. Here the histogram is taken along all the columns in the lower half of the top-down image of the road. The peaks on histogram gives clue about the possible position of lanes. Then, starting from these points, sliding window technique is applied through the top of the image. 
@@ -35,8 +43,12 @@ Since there are white pixels that show lane lines, there are also some noise aro
 #### 7. Curve Fit
 The result of sliding window method consists detected points of lanes and a curve is fitted on them. Now there is a polynomial curve that represents the lanes instead of bunch of pixels. Since the camera is fixed at the center of the car, curve starting point's coordinate according to the center of image gives the car's position relative to the lanes. By using these curves, we can also predict about the radius of the curvature of the road.
 
+![Curve Fit](output_images/warped_curvefit_test5.jpg?raw=true "Curve Fit")
+
 #### 8. Display All
 At the end, by resizing some of the processed images and combining them, a final image is created.
+
+![Display All](output_images/Debug_test5.jpg?raw=true "Display All")
 
 
 
