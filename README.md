@@ -15,7 +15,7 @@ Advanced Lane Detection project includes computer vision algorithms to detect la
 #### 1. Camera Calibration
 As a very first beginning step, the camera distortion values are extracted by analyzing several photos of a chessboard taken by the camera. 
 
-![Calibration](output_images/undistortion.png?raw=true "Calibration sample 1")
+![Calibration](pipeline/cameracal.png?raw=true "Calibration sample 1")
 
 #### 2. Undistorted Image
 Images are then undistorted by the function `cv2.undistort` to reduce defects in upcoming analyzing functions that may lead unexpected results that are far from the real case. Otherwise, straight lines in real world may appear as curvatures on image. 
