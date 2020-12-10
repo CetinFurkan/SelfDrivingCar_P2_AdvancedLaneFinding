@@ -71,3 +71,5 @@ Lane_Curvature_Detector.ipynb
 .ipynb_checkpoints/Lane_Detection-checkpoint.ipynb
 .ipynb_checkpoints/Advanced_Lane_Detection-checkpoint.ipynb
 .ipynb_checkpoints/Lane_Detection_Parted_Video-checkpoint.ipynb
+debug.log
+project_video_output.mp4
